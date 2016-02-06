@@ -2,7 +2,7 @@ import pynotify
 import urllib2
 import requests
 from BeautifulSoup import BeautifulSoup
-#from gi.repository import Notify
+
 
 url = 'http://www.espncricinfo.com/ci/engine/match/index.html?view=live'
 
@@ -32,31 +32,20 @@ print "-----------------------"
 
 pynotify.init("markup")
 
-#test = soup.beautifulsoup(score).find_all('a').gettext();
-
-
-#print "----------",test
-
-
 scoretodisplay=score.text
-#print scoretodisplay
 
 stringarr=scoretodisplay.split(",")
 
 todisplay=""
 
-#print stringarr[2]
-
-
 score_text_arr = stringarr[2].split(")")
 
 elemcounter = 0
 
-
 for elem in score_text_arr:
     if elemcounter>0:
-        todisplay="\n"+todisplay+"\n"+"\n"+elem+")"
-        todisplay=todisplay+"\n \n"
+        todisplay=todisplay+"\n"+elem+")"
+        todisplay=todisplay+"\n"
 
     todisplay=todisplay+"\n"
     elemcounter=elemcounter+1
